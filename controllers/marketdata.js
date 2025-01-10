@@ -1,5 +1,5 @@
+require('dotenv').config();
 const MarketData = require('../models/marketdata');
-const gecko_api = 'https://api.coingecko.com/api/v3/coins/markets';
 
 const fetchMarketData = async (req, res) => {
     try {
@@ -8,7 +8,7 @@ const fetchMarketData = async (req, res) => {
             ids: 'bitcoin,matic-network,ethereum',
         });
   
-        const response = await fetch(`${gecko_api}?${params}`);
+        const response = await fetch(`${process.env.gecko_api}?${params}`);
         if (!response.ok) {
             throw new Error(`Failed to fetch data: ${response.statusText}`);
         }

@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const { connectToMongoDB } = require('./connect');
+const { connectToMongoDB } = require('./services/database');
 
 const routes= require('./routes/route');
 const fetchDataRoute = require('./routes/fetchdata');
@@ -9,11 +9,7 @@ const app = express();
 const port = 3000;
 
 //connect to MongoDB using Mongoose
-connectToMongoDB('mongodb://127.0.0.1:27017/Market-Data').then(() => {
-    console.log('Connected to MongoDB');
-}).catch((err) => {
-    console.log('Failed to connect to MongoDB', err);
-});
+connectToMongoDB();
 
 app.use(express.json());
 app.use(bodyParser.json());
