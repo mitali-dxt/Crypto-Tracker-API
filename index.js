@@ -1,4 +1,5 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const { connectToMongoDB } = require('./connect');
 const app = express();
 const port = 3000;
@@ -12,6 +13,9 @@ connectToMongoDB('mongodb://127.0.0.1:27017/Market-Data').then(() => {
 }).catch((err) => {
     console.log('Failed to connect to MongoDB', err);
 });
+
+app.use(express.json());
+app.use(bodyParser.json());
 
 app.use('/api/market-data', marketdataRoute);
 
