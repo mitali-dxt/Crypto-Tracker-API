@@ -6,7 +6,7 @@ const routes= require('./routes/route');
 const fetchDataRoute = require('./routes/fetchdata');
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 //connect to MongoDB using Mongoose
 connectToMongoDB();
@@ -15,6 +15,7 @@ app.use(express.json());
 app.use(bodyParser.json());
 
 //fetch market data of coins manually 
+
 app.use('/fetchData', fetchDataRoute);
 
 //routes for the API for task 2 and task 3

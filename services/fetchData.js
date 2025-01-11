@@ -13,4 +13,4 @@ setInterval(async () => {
     } catch (error) {
         console.error("Error fetching data", error);
     }
-}, 2 * 60 * 1000); //calls the fetchMarketData function every 2 minutes
+}, 2 *60* 60 * 1000); //calls the fetchMarketData function every 2 minutes
