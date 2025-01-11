@@ -14,8 +14,11 @@ connectToMongoDB();
 app.use(express.json());
 app.use(bodyParser.json());
 
-//fetch market data of coins manually 
+app.get('/', (req, res) => {
+    res.send('Welcome to the Coin Market API');  
+});
 
+//fetch market data of coins manually 
 app.use('/fetchData', fetchDataRoute);
 
 //routes for the API for task 2 and task 3
