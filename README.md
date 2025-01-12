@@ -10,6 +10,36 @@ This project implements a server-side application using **Node.js** and **MongoD
 - **API `/stats`**: Returns the latest data about a requested cryptocurrency (Bitcoin, Matic, or Ethereum).
 - **API `/deviation`**: Calculates and returns the standard deviation of the price for the requested cryptocurrency from the last 100 records.
 
+## Deployments
+
+### 1. Stats API
+- [http://13.126.35.81:8001/api/stats?coin=bitcoin](http://13.126.35.81:8001/api/stats?coin=bitcoin)
+- Change the query parameter coin to one of bitcoin, matic-network or ethereum and test the same
+- Sample response:
+```
+{
+    "price": 94292,
+    "marketCap": 1867699422612,
+    "24hChange": 0.07585
+}
+```
+
+ 
+### 2. Deviation API
+- [http://13.126.35.81:8001/api/deviation?coin=bitcoin](http://13.126.35.81:8001/api/deviation?coin=bitcoin)
+- Change the query parameter coin to one of bitcoin, matic-network or ethereum and test the same
+- Sample response:
+```
+{
+  "deviation": 30.4236749916903
+}
+```
+
+### 3. MongoDB Atlas
+- The database is deployed on MongoDB Atlas Cluster
+
+
+  
 ## Installation
 
 ### Prerequisites
@@ -43,3 +73,6 @@ Before you start, ensure you have the following installed:
     ```bash
     npm start
     ```
+## Conclusion
+
+This project demonstrates how to fetch real-time cryptocurrency data, store it in a database, and expose it via REST APIs. The background job runs periodically to ensure the data is up-to-date, and the APIs allow users to query the latest market stats and price deviation.
